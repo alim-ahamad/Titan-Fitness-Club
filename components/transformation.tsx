@@ -22,25 +22,25 @@ export function Transformation() {
   };
 
   return (
-    <section id="transformations" className="relative py-24 px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto">
+    <section id="transformations" className="relative py-32 lg:py-48 px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
-          <div className="inline-flex items-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-3 mb-6 justify-center">
             <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-            <span className="text-sm font-semibold text-accent uppercase tracking-wider">Real Results</span>
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest">Real Results</span>
           </div>
-          <h2 className="text-5xl lg:text-7xl font-bold text-text mb-6 leading-tight">
-            Transformations That <br /> Inspire
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-text mb-8 leading-tight">
+            Transformations <br /> That Inspire
           </h2>
-          <p className="text-xl text-text-muted max-w-2xl mx-auto">
-            Drag the slider to see the incredible transformations of our clients
+          <p className="text-lg text-text-muted max-w-3xl mx-auto">
+            Drag the slider to see how our clients achieved their elite physiques through disciplined training and nutrition
           </p>
         </motion.div>
 
@@ -53,7 +53,7 @@ export function Transformation() {
           ref={containerRef}
           onMouseMove={handleMouseMove}
           onTouchMove={handleTouchMove}
-          className="relative w-full rounded-2xl overflow-hidden bg-card/50 border border-border cursor-col-resize group"
+          className="relative w-full rounded-2xl overflow-hidden bg-card/50 border border-border hover:border-accent/40 cursor-col-resize group transition-all shadow-lg"
         >
           {/* Container */}
           <div className="relative h-96 lg:h-screen max-h-screen w-full">
@@ -103,7 +103,7 @@ export function Transformation() {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
           {[
             { label: "Clients Transformed", value: "500+" },
             { label: "Average Body Fat Loss", value: "18%" },
@@ -115,10 +115,10 @@ export function Transformation() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="glass rounded-2xl p-8 border border-border hover:border-accent/40 text-center transition-all"
             >
-              <p className="text-4xl lg:text-5xl font-bold text-accent mb-2">{stat.value}</p>
-              <p className="text-lg text-text-muted">{stat.label}</p>
+              <p className="text-5xl lg:text-6xl font-black text-accent mb-3">{stat.value}</p>
+              <p className="text-base text-text-muted font-medium">{stat.label}</p>
             </motion.div>
           ))}
         </div>

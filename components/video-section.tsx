@@ -8,23 +8,26 @@ export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section id="video" className="relative py-24 px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto">
+    <section id="video" className="relative py-32 lg:py-48 px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-3 mb-6 justify-center">
             <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-            <span className="text-sm font-semibold text-accent uppercase tracking-wider">Behind the Scenes</span>
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest">Behind the Scenes</span>
           </div>
-          <h2 className="text-5xl lg:text-7xl font-bold text-text mb-6 leading-tight">
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-text mb-8 leading-tight">
             See It In <br /> Action
           </h2>
+          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+            Watch our elite coaching in action and experience the energy of our training sessions
+          </p>
         </motion.div>
 
         {/* Video Container */}
@@ -33,7 +36,7 @@ export function VideoSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative group rounded-2xl overflow-hidden h-96 lg:h-screen max-h-screen bg-black/50"
+          className="relative group rounded-2xl overflow-hidden h-96 lg:h-screen max-h-screen bg-black/50 border border-accent/20 hover:border-accent/40 transition-all"
         >
           {/* Video Background */}
           <div className="absolute inset-0 w-full h-full">
