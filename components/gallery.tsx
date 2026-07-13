@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const galleryImages = [
@@ -70,12 +69,10 @@ export function Gallery() {
               onClick={() => setSelectedIndex(index)}
               className="relative h-64 lg:h-72 rounded-2xl overflow-hidden cursor-pointer group"
             >
-              <Image
+              <img
                 src={image.src}
                 alt={image.alt}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-                quality={100}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
 
               {/* Overlay */}
@@ -106,12 +103,10 @@ export function Gallery() {
                 onClick={(e) => e.stopPropagation()}
                 className="relative w-full max-w-4xl aspect-video"
               >
-                <Image
+                <img
                   src={galleryImages[selectedIndex].src}
                   alt={galleryImages[selectedIndex].alt}
-                  fill
-                  className="object-cover rounded-2xl"
-                  quality={100}
+                  className="w-full h-full object-cover rounded-2xl"
                 />
 
                 {/* Close button */}

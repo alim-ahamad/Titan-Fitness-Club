@@ -1,35 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = {
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      };
-
-      if (imageRef.current) {
-        gsap.to(imageRef.current, {
-          rotationY: mouseRef.current.x * 0.5,
-          rotationX: -mouseRef.current.y * 0.5,
-          duration: 0.8,
-          ease: "power2.out",
-        });
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   return (
     <section
@@ -127,18 +103,15 @@ export function Hero() {
             style={{ perspective: 1200 }}
             className="relative h-96 lg:h-full min-h-96 lg:min-h-screen flex items-center justify-center"
           >
-            <div className="relative w-full h-full max-w-md lg:max-w-none">
+            <div className="relative w-full h-full max-w-md lg:max-w-none rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent-light/20 rounded-2xl blur-2xl"></div>
-              <Image
+              <img
                 src="/assets/Man_standing_arms_crossed_gym_202607131105.jpeg"
                 alt="Trainer"
-                fill
-                className="object-cover rounded-2xl"
-                priority
-                quality={100}
+                className="w-full h-full object-cover rounded-2xl"
               />
               {/* Accent border */}
-              <div className="absolute inset-0 border-2 border-accent/30 rounded-2xl"></div>
+              <div className="absolute inset-0 border-2 border-accent/30 rounded-2xl pointer-events-none"></div>
             </div>
           </motion.div>
         </div>
