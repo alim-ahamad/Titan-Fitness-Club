@@ -30,7 +30,7 @@ export function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full py-24 lg:py-40 bg-background overflow-hidden">
+    <section id="gallery" className="relative w-full py-32 lg:py-48 bg-background overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-red-900/5 rounded-full blur-3xl opacity-30"></div>
@@ -43,21 +43,24 @@ export function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-20 space-y-4"
+          className="mb-24 space-y-6"
         >
           <div className="flex items-center gap-3">
-            <div className="h-1 w-8 bg-accent"></div>
+            <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
             <span className="text-xs font-semibold tracking-widest text-text-muted uppercase">
               Gallery
             </span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-black leading-tight text-text">
-            Train. Sweat. Achieve.
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight text-text">
+            Train. Sweat. <br /> Achieve.
           </h2>
+          <p className="text-lg text-text-muted max-w-2xl">
+            See our members in action during elite training sessions
+          </p>
         </motion.div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {galleryImages.map((image, index) => (
             <motion.div
               key={index}
@@ -65,23 +68,25 @@ export function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ y: -8, scale: 1.03 }}
               onClick={() => setSelectedIndex(index)}
-              className="relative h-64 lg:h-72 rounded-2xl overflow-hidden cursor-pointer group"
+              className="relative h-64 lg:h-80 rounded-2xl overflow-hidden cursor-pointer group border border-border hover:border-accent/40 transition-all shadow-lg hover:shadow-xl"
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-6">
-                <p className="text-text font-bold text-lg">{image.title}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-8">
+                <div>
+                  <p className="text-text font-bold text-xl">{image.title}</p>
+                </div>
               </div>
 
               {/* Border accent */}
-              <div className="absolute inset-0 border-2 border-accent/0 group-hover:border-accent/50 rounded-2xl transition-colors duration-300"></div>
+              <div className="absolute inset-0 border-2 border-accent/0 group-hover:border-accent/60 rounded-2xl transition-colors duration-300 pointer-events-none"></div>
             </motion.div>
           ))}
         </div>

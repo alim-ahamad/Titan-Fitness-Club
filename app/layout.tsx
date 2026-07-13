@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { CustomCursor } from "@/components/custom-cursor";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,7 +39,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className="bg-background text-text font-sans antialiased">
+      <body className="bg-background text-text font-sans antialiased cursor-none">
+        <CustomCursor />
         {children}
       </body>
     </html>

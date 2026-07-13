@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function CTA() {
@@ -19,13 +18,11 @@ export function CTA() {
       </div>
 
       {/* Background image */}
-      <div className="absolute inset-0 z-0">
-        <Image
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img
           src="/assets/Man_holding_protein_shaker_gym_202607131104.jpeg"
           alt="Background"
-          fill
-          className="object-cover opacity-20"
-          quality={100}
+          className="w-full h-full object-cover opacity-20"
         />
       </div>
 
@@ -37,17 +34,15 @@ export function CTA() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
+            className="space-y-10"
           >
-            <h2 className="text-6xl lg:text-7xl font-black leading-tight text-text">
-              Ready to become
-              <br />
+            <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight text-text">
+              Ready to become <br />
               <span className="gradient-text">your best self?</span>
             </h2>
 
-            <p className="text-lg text-text-muted leading-relaxed max-w-md">
-              Join hundreds of transformed clients who have taken control of
-              their fitness journey. Your transformation starts today.
+            <p className="text-lg lg:text-xl text-text-muted leading-relaxed max-w-xl">
+              Join hundreds of transformed clients who have taken control of their fitness journey and built the bodies and confidence they deserve. Your transformation starts today.
             </p>
 
             <motion.button
@@ -56,9 +51,9 @@ export function CTA() {
                 boxShadow: "0 0 60px rgba(229, 57, 53, 0.5)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-accent text-background font-bold rounded-lg hover:bg-accent-light transition-colors shadow-glow-intense text-lg"
+              className="px-10 py-6 bg-accent text-background font-bold rounded-lg hover:bg-accent-light transition-colors shadow-glow-intense text-lg mt-6"
             >
-              Book a free consultation
+              Get Started - Free Consultation
             </motion.button>
           </motion.div>
 
@@ -70,16 +65,13 @@ export function CTA() {
             viewport={{ once: true, margin: "-100px" }}
             className="hidden lg:flex relative h-96 justify-center"
           >
-            <div className="relative w-full max-w-sm">
-              <Image
+            <div className="relative w-full max-w-sm rounded-2xl overflow-hidden">
+              <img
                 src="/assets/Man_kneeling_mid-stretch_gym_202607131104.jpeg"
                 alt="Flexibility"
-                width={400}
-                height={500}
-                className="object-cover rounded-2xl"
-                quality={100}
+                className="w-full h-full object-cover rounded-2xl"
               />
-              <div className="absolute inset-0 border-2 border-accent/20 rounded-2xl"></div>
+              <div className="absolute inset-0 border-2 border-accent/20 rounded-2xl pointer-events-none"></div>
             </div>
           </motion.div>
         </div>

@@ -33,7 +33,7 @@ export function Programs() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-24 lg:py-40 bg-background overflow-hidden"
+      className="relative w-full py-32 lg:py-48 bg-background overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0">
@@ -47,7 +47,7 @@ export function Programs() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-20 space-y-4"
+          className="mb-24 space-y-6"
         >
           <div className="flex items-center gap-3">
             <div className="h-1 w-8 bg-accent"></div>
@@ -55,15 +55,17 @@ export function Programs() {
               Programs
             </span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-black leading-tight text-text">
-            Choose your
-            <br />
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight text-text">
+            Choose your <br />
             transformation
           </h2>
+          <p className="text-lg text-text-muted max-w-3xl">
+            Our four flagship programs are engineered to deliver specific results based on your fitness goals
+          </p>
         </motion.div>
 
         {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {programs.map((program, index) => (
             <motion.div
               key={index}
@@ -79,16 +81,16 @@ export function Programs() {
                     }
                   : { scale: 1.02, boxShadow: "0 0 40px rgba(229, 57, 53, 0.3)" }
               }
-              className={`rounded-2xl p-8 transition-all duration-300 cursor-pointer ${
+              className={`rounded-2xl p-10 transition-all duration-300 cursor-pointer group ${
                 program.featured
-                  ? "glass border-2 border-accent/50 shadow-glow-intense"
-                  : "glass border border-accent/20"
+                  ? "glass border-2 border-accent/60 shadow-glow-intense bg-card/80"
+                  : "glass border border-border hover:border-accent/40 bg-card/50"
               }`}
             >
               {/* Number */}
               <div
-                className={`text-5xl font-black mb-6 ${
-                  program.featured ? "text-accent" : "text-text-muted/40"
+                className={`text-6xl font-black mb-8 transition-colors ${
+                  program.featured ? "text-accent" : "text-text-muted/30 group-hover:text-text-muted/50"
                 }`}
               >
                 {program.number}
@@ -96,8 +98,8 @@ export function Programs() {
 
               {/* Title */}
               <h3
-                className={`text-2xl font-bold mb-4 ${
-                  program.featured ? "text-accent" : "text-text"
+                className={`text-2xl lg:text-3xl font-bold mb-4 transition-colors ${
+                  program.featured ? "text-accent" : "text-text group-hover:text-accent"
                 }`}
               >
                 {program.title}
