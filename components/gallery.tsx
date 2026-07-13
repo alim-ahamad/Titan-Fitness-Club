@@ -75,7 +75,7 @@ export function Gallery() {
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover group-hover:scale-120 transition-transform duration-700"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
 
               {/* Overlay */}
