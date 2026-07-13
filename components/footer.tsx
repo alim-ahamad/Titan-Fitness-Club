@@ -32,19 +32,26 @@ export function Footer() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h4 className="font-bold text-text">Quick Links</h4>
+            <h4 className="font-bold text-text">Navigation</h4>
             <ul className="space-y-2 text-text-muted text-sm">
-              {["About", "Programs", "Testimonials", "Gallery"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="hover:text-accent transition-colors">
-                    {link}
+              {[
+                { name: "Home", href: "#hero" },
+                { name: "Services", href: "#services" },
+                { name: "About", href: "#about" },
+                { name: "Why Choose Us", href: "#why-choose-us" },
+                { name: "Features", href: "#features" },
+                { name: "Programs", href: "#programs" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="hover:text-accent transition-colors">
+                    {link.name}
                   </a>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Programs */}
+          {/* More Navigation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -52,17 +59,22 @@ export function Footer() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h4 className="font-bold text-text">Programs</h4>
+            <h4 className="font-bold text-text">Resources</h4>
             <ul className="space-y-2 text-text-muted text-sm">
-              {["Strength", "Muscle Gain", "Fat Loss", "Athletic"].map(
-                (program) => (
-                  <li key={program}>
-                    <a href="#" className="hover:text-accent transition-colors">
-                      {program}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { name: "Transformations", href: "#transformations" },
+                { name: "Success Metrics", href: "#success-metrics" },
+                { name: "Testimonials", href: "#testimonials" },
+                { name: "Gallery", href: "#gallery" },
+                { name: "FAQ", href: "#faq" },
+                { name: "Blog", href: "#blog" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="hover:text-accent transition-colors">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -116,18 +128,29 @@ export function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-text-muted text-sm">
-            © 2025 Titan Fitness Club. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-text-muted text-sm">
-            <a href="#" className="hover:text-accent transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-accent transition-colors">
-              Terms of Service
-            </a>
+        <div className="border-t border-border pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <p className="text-text-muted text-sm">
+              © 2025 Titan Fitness Club. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-text-muted text-sm">
+              <a href="#" className="hover:text-accent transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-accent transition-colors">
+                Terms of Service
+              </a>
+            </div>
           </div>
+          
+          {/* Back to Top */}
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            whileHover={{ y: -4 }}
+            className="w-full md:w-auto px-6 py-2 rounded-lg border border-border text-text-muted hover:text-accent hover:border-accent transition-colors text-sm"
+          >
+            Back to Top ↑
+          </motion.button>
         </div>
       </div>
     </footer>
