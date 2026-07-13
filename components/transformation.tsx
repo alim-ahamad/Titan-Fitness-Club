@@ -60,7 +60,7 @@ export function Transformation() {
             {/* Before Image */}
             <div className="absolute inset-0 w-full h-full">
               <img
-                src="/assets/Before_after_building_muscle_during_202601081525.jpeg"
+                src="/assets/Man_kneeling_mid-stretch_gym_202607131104.jpeg"
                 alt="Before"
                 className="w-full h-full object-cover"
               />
@@ -76,7 +76,7 @@ export function Transformation() {
               style={{ clipPath: `inset(0 0 0 ${100 - sliderPosition}%)` }}
             >
               <img
-                src="/assets/After_physique_gaining_confidence_202601081526.jpeg"
+                src="/assets/Man_standing_arms_crossed_gym_202607131105.jpeg"
                 alt="After"
                 className="w-full h-full object-cover"
               />

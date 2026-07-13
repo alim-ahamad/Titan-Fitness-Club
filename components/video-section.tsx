@@ -38,7 +38,7 @@ export function VideoSection() {
           {/* Video Background */}
           <div className="absolute inset-0 w-full h-full">
             <img
-              src="/assets/Man_holding_heavy_dumbbells_in_gym_202601081527.jpeg"
+              src="/assets/Trainer_holding_medicine_ball_gym_202607131104.jpeg"
               alt="Training"
               className="w-full h-full object-cover"
             />

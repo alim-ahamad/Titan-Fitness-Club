@@ -20,7 +20,7 @@ export function Blog() {
       excerpt:
         "Discover the hidden factors that accelerate recovery. From nutrition timing to active recovery strategies, learn what separates champions from beginners.",
       category: "Recovery",
-      image: "/assets/Physique_with_visible_abs_exercising_in_gym_202601081522.jpeg",
+      image: "/assets/Man_kneeling_mid-stretch_gym_202607131104.jpeg",
       readTime: "10 min read",
     },
     {
@@ -29,7 +29,7 @@ export function Blog() {
       excerpt:
         "Understanding when and what to eat can make all the difference. Explore macro timing strategies designed by our elite nutritionists.",
       category: "Nutrition",
-      image: "/assets/Man_holding_heavy_dumbbells_in_gym_202601081527.jpeg",
+      image: "/assets/Man_holding_protein_shaker_gym_202607131104.jpeg",
       readTime: "7 min read",
     },
   ];
