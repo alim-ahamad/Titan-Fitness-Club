@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     description: "World-Class Luxury Fitness Coaching",
     type: "website",
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
@@ -30,6 +34,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body className="bg-background text-text font-sans antialiased">
         {children}
       </body>

@@ -32,26 +32,7 @@ html::-webkit-scrollbar {
   display: none;
 }
 
-/* Smooth scroll with Lenis */
-html.lenis {
-  height: auto;
-}
 
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
 
 /* Text utilities */
 .text-balance {
