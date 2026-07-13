@@ -51,27 +51,30 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="relative py-24 px-6 lg:px-12">
-      <div className="max-w-4xl mx-auto">
+    <section id="faq" className="relative py-32 lg:py-48 px-6 lg:px-12">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-            <span className="text-sm font-semibold text-accent uppercase tracking-wider">Questions & Answers</span>
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest">Questions & Answers</span>
           </div>
-          <h2 className="text-5xl lg:text-7xl font-bold text-text mb-6 leading-tight">
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-text mb-8 leading-tight">
             Frequently Asked <br /> Questions
           </h2>
+          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+            Everything you need to know about our coaching programs and approach
+          </p>
         </motion.div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -83,10 +86,10 @@ export function FAQ() {
             >
               <motion.button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full text-left p-6 rounded-2xl bg-card/50 border border-border hover:border-accent/50 transition-all duration-300 flex items-center justify-between"
-                whileHover={{ backgroundColor: "rgba(16, 16, 16, 0.8)" }}
+                className="w-full text-left p-8 rounded-2xl bg-card/50 border border-border hover:border-accent/40 hover:bg-card/70 transition-all duration-300 flex items-center justify-between group"
+                whileHover={{ y: -4 }}
               >
-                <span className="text-xl font-semibold text-text pr-4">{faq.question}</span>
+                <span className="text-lg lg:text-xl font-bold text-text pr-6 group-hover:text-accent transition-colors">{faq.question}</span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -105,7 +108,7 @@ export function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-6 pt-0 text-text-muted leading-relaxed">{faq.answer}</div>
+                    <div className="px-8 pb-8 text-base text-text-muted leading-relaxed border-t border-border/50 mt-6 pt-6">{faq.answer}</div>
                   </motion.div>
                 )}
               </AnimatePresence>
