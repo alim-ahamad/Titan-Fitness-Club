@@ -22,6 +22,36 @@ const testimonials = [
     rating: 5,
     text: "The coaching, the support, the results — everything is world-class. I&apos;m blown away.",
   },
+  {
+    name: "Alex P.",
+    title: "Athletic Performance Program",
+    rating: 5,
+    text: "My strength increased 40% in just 4 months. The programming is scientifically proven and the support is incredible.",
+  },
+  {
+    name: "Sarah L.",
+    title: "Transformation Program",
+    rating: 5,
+    text: "Not only did I achieve my body goals, but I learned sustainable habits. This is a lifestyle change, not just a program.",
+  },
+  {
+    name: "James M.",
+    title: "VIP Coaching Package",
+    rating: 5,
+    text: "Worth every penny. The personalized attention and expertise changed everything. I finally understand real training.",
+  },
+  {
+    name: "David C.",
+    title: "Strength Builder Program",
+    rating: 5,
+    text: "As a busy executive, I needed efficient training. Marcus delivered exactly that. Results speak for themselves.",
+  },
+  {
+    name: "Rachel K.",
+    title: "Fat Loss & Toning Program",
+    rating: 5,
+    text: "The nutrition guidance paired with training was game-changing. Feeling stronger and more confident than ever!",
+  },
 ];
 
 export function Testimonials() {
