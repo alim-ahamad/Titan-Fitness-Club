@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function About() {
@@ -36,28 +35,26 @@ export function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-24 lg:py-40 bg-background overflow-hidden"
+      className="relative w-full py-32 lg:py-48 bg-background overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="relative h-96 lg:h-full min-h-96 lg:min-h-96"
+            className="relative h-96 lg:h-full min-h-[500px] lg:min-h-[600px]"
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-light/20 rounded-2xl blur-2xl"></div>
-              <Image
+              <img
                 src="/assets/Trainer_holding_medicine_ball_gym_202607131104.jpeg"
                 alt="Coach Profile"
-                fill
-                className="object-cover rounded-2xl"
-                quality={100}
+                className="w-full h-full object-cover rounded-2xl"
               />
-              <div className="absolute inset-0 border-2 border-accent/30 rounded-2xl"></div>
+              <div className="absolute inset-0 border-2 border-accent/30 rounded-2xl pointer-events-none"></div>
             </div>
           </motion.div>
 
@@ -78,14 +75,14 @@ export function About() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-5xl lg:text-6xl font-black leading-tight text-text">
-              More than a coach.
-              <br />
-              <span className="text-accent">I&apos;m your partner.</span>
+            <h2 className="text-5xl lg:text-7xl xl:text-8xl font-black leading-tight text-text">
+              More than a <br />
+              coach. I&apos;m your <br />
+              <span className="text-accent">partner.</span>
             </h2>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-6 pt-8">
               {[
                 { value: `${counters.clients}+`, label: "Happy Clients" },
                 { value: `${counters.success}%`, label: "Success Rate" },

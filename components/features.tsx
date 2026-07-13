@@ -44,7 +44,7 @@ export function Features() {
   ];
 
   return (
-    <section id="features" className="relative py-24 px-6 lg:px-12">
+    <section id="features" className="relative py-32 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -52,19 +52,22 @@ export function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-32"
         >
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-            <span className="text-sm font-semibold text-accent uppercase tracking-wider">Features</span>
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest">Features</span>
           </div>
-          <h2 className="text-5xl lg:text-7xl font-bold text-text mb-6 leading-tight">
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-text mb-8 leading-tight">
             Everything You <br /> Need To Succeed
           </h2>
+          <p className="text-lg text-text-muted max-w-2xl">
+            Comprehensive tools and personalized support to maximize your fitness transformation
+          </p>
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 auto-rows-[300px]">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -82,17 +85,17 @@ export function Features() {
 
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-between">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 10 }}
-                    transition={{ duration: 0.4 }}
-                    className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors mb-4"
-                  >
-                    <Icon className="w-7 h-7 text-accent" />
-                  </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.15, rotate: 12 }}
+                transition={{ duration: 0.4 }}
+                className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center group-hover:from-accent/40 group-hover:to-accent/20 transition-all mb-6 border border-accent/20"
+              >
+                <Icon className="w-8 h-8 text-accent" />
+              </motion.div>
 
                   <div>
-                    <h3 className="text-2xl font-bold text-text mb-2">{feature.title}</h3>
-                    <p className="text-text-muted leading-relaxed">{feature.description}</p>
+                    <h3 className="text-2xl font-bold text-text mb-3 leading-tight">{feature.title}</h3>
+                    <p className="text-base text-text-muted leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
 
