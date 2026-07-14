@@ -35,8 +35,9 @@ export function Services() {
 
   return (
     <section
+      id="services"
       ref={containerRef}
-      className="relative w-full py-24 lg:py-40 bg-background overflow-hidden"
+      className="relative w-full py-20 md:py-32 lg:py-40 bg-background overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0">

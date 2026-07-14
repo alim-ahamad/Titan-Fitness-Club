@@ -32,6 +32,7 @@ export function Programs() {
 
   return (
     <section
+      id="programs"
       ref={containerRef}
       className="relative w-full py-32 lg:py-48 bg-background overflow-hidden"
     >

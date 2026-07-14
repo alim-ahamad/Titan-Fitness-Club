@@ -8,6 +8,7 @@ export function CTA() {
 
   return (
     <section
+      id="cta"
       ref={containerRef}
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >

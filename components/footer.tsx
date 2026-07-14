@@ -32,6 +32,19 @@ const termsContent = `
 <p>If you have questions about our terms, please contact us at hello@titanfitness.com</p>
 `;
 
+const handleSmoothScroll = (href: string) => {
+  const element = document.querySelector(href);
+  if (element) {
+    const headerHeight = 100;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - headerHeight;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
+
 export function Footer() {
   const [openModal, setOpenModal] = useState<"privacy" | "terms" | null>(null);
   return (
@@ -86,9 +99,9 @@ export function Footer() {
                 { name: "Programs", href: "#programs" },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-accent transition-colors">
+                  <button onClick={() => handleSmoothScroll(link.href)} className="hover:text-accent transition-colors cursor-pointer text-left">
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -113,9 +126,9 @@ export function Footer() {
                 { name: "Blog", href: "#blog" },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-accent transition-colors">
+                  <button onClick={() => handleSmoothScroll(link.href)} className="hover:text-accent transition-colors cursor-pointer text-left">
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

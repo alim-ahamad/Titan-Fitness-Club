@@ -34,6 +34,7 @@ export function About() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       className="relative w-full py-32 lg:py-48 bg-background overflow-hidden"
     >
