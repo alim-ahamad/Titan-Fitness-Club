@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar";
 import { ScrollProvider } from "@/components/scroll-provider";
 import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
@@ -19,6 +20,7 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <ScrollProvider>
+      <Navbar />
       <main className="w-full overflow-hidden bg-background">
         <Hero />
         <Services />

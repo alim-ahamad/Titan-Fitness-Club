@@ -87,18 +87,9 @@ export function Services() {
               </h3>
 
               {/* Description */}
-              <p className="text-text-muted text-sm leading-relaxed mb-6">
+              <p className="text-text-muted text-sm leading-relaxed">
                 {service.description}
               </p>
-
-              {/* Learn More Link */}
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center gap-2 text-accent font-semibold text-sm"
-              >
-                <span>Learn more</span>
-                <span>→</span>
-              </motion.div>
             </motion.div>
           ))}
         </div>
