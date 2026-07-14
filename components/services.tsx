@@ -35,8 +35,9 @@ export function Services() {
 
   return (
     <section
+      id="services"
       ref={containerRef}
-      className="relative w-full py-24 lg:py-40 bg-background overflow-hidden"
+      className="relative w-full py-20 md:py-32 lg:py-40 bg-background overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0">
@@ -87,18 +88,9 @@ export function Services() {
               </h3>
 
               {/* Description */}
-              <p className="text-text-muted text-sm leading-relaxed mb-6">
+              <p className="text-text-muted text-sm leading-relaxed">
                 {service.description}
               </p>
-
-              {/* Learn More Link */}
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center gap-2 text-accent font-semibold text-sm"
-              >
-                <span>Learn more</span>
-                <span>→</span>
-              </motion.div>
             </motion.div>
           ))}
         </div>

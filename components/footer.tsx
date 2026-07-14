@@ -1,10 +1,67 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { PolicyModal } from "./policy-modal";
+
+const privacyContent = `
+<h3 style="font-size: 1.25rem; font-weight: bold; margin: 1rem 0;">Privacy Policy</h3>
+<p>Last updated: January 2025</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">1. Information Collection</h4>
+<p>We collect information you provide directly, such as when you contact us or sign up for our services. This includes your name, email, phone number, and fitness goals.</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">2. Use of Information</h4>
+<p>Your information is used to provide and improve our services, communicate with you, and personalize your coaching experience.</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">3. Data Protection</h4>
+<p>We implement appropriate security measures to protect your personal information from unauthorized access.</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">4. Contact Us</h4>
+<p>If you have questions about our privacy practices, please contact us at hello@titanfitness.com</p>
+`;
+
+const termsContent = `
+<h3 style="font-size: 1.25rem; font-weight: bold; margin: 1rem 0;">Terms of Service</h3>
+<p>Last updated: January 2025</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">1. Agreement to Terms</h4>
+<p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">2. Use License</h4>
+<p>Permission is granted to temporarily download one copy of the materials on Titan Fitness Club website for personal, non-commercial transitory viewing only.</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">3. Disclaimer</h4>
+<p>The materials on Titan Fitness Club website are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties.</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">4. Limitations</h4>
+<p>In no event shall Titan Fitness Club be liable for any damages arising out of the use or inability to use the materials on its website.</p>
+<h4 style="font-weight: bold; margin-top: 1rem;">5. Contact Us</h4>
+<p>If you have questions about our terms, please contact us at hello@titanfitness.com</p>
+`;
+
+const handleSmoothScroll = (href: string) => {
+  const element = document.querySelector(href);
+  if (element) {
+    const headerHeight = 100;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - headerHeight;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
 
 export function Footer() {
+  const [openModal, setOpenModal] = useState<"privacy" | "terms" | null>(null);
   return (
-    <footer className="relative w-full bg-background border-t border-border/50">
+    <>
+      <PolicyModal
+        isOpen={openModal === "privacy"}
+        onClose={() => setOpenModal(null)}
+        title="Privacy Policy"
+        content={privacyContent}
+      />
+      <PolicyModal
+        isOpen={openModal === "terms"}
+        onClose={() => setOpenModal(null)}
+        title="Terms of Service"
+        content={termsContent}
+      />
+      <footer className="relative w-full bg-background border-t border-border/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
           {/* Brand */}
@@ -42,9 +99,9 @@ export function Footer() {
                 { name: "Programs", href: "#programs" },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-accent transition-colors">
+                  <button onClick={() => handleSmoothScroll(link.href)} className="hover:text-accent transition-colors cursor-pointer text-left">
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -69,9 +126,9 @@ export function Footer() {
                 { name: "Blog", href: "#blog" },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-accent transition-colors">
+                  <button onClick={() => handleSmoothScroll(link.href)} className="hover:text-accent transition-colors cursor-pointer text-left">
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -133,12 +190,18 @@ export function Footer() {
               © 2025 Titan Fitness Club. All rights reserved.
             </p>
             <div className="flex gap-6 text-text-muted text-sm">
-              <a href="#" className="hover:text-accent transition-colors">
+              <button
+                onClick={() => setOpenModal("privacy")}
+                className="hover:text-accent transition-colors cursor-pointer"
+              >
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-accent transition-colors">
+              </button>
+              <button
+                onClick={() => setOpenModal("terms")}
+                className="hover:text-accent transition-colors cursor-pointer"
+              >
                 Terms of Service
-              </a>
+              </button>
             </div>
           </div>
           
@@ -153,5 +216,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

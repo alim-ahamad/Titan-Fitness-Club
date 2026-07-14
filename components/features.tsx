@@ -77,11 +77,11 @@ export function Features() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -12 }}
-                className={`${feature.size} group relative p-8 rounded-2xl bg-card/50 border border-border backdrop-blur-sm overflow-hidden hover:border-accent/50 transition-all duration-300`}
+                whileHover={{ y: -16, boxShadow: "0 20px 50px rgba(229, 57, 53, 0.25)" }}
+                className={`${feature.size} group relative p-8 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 border border-border/50 backdrop-blur-lg overflow-hidden hover:border-accent/40 hover:from-card/80 hover:to-card/60 transition-all duration-300 shadow-lg`}
               >
                 {/* Background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-between">

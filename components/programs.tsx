@@ -32,6 +32,7 @@ export function Programs() {
 
   return (
     <section
+      id="programs"
       ref={containerRef}
       className="relative w-full py-32 lg:py-48 bg-background overflow-hidden"
     >
@@ -76,17 +77,25 @@ export function Programs() {
               whileHover={
                 program.featured
                   ? {
-                      scale: 1.05,
-                      boxShadow: "0 0 60px rgba(229, 57, 53, 0.5)",
+                      y: -12,
+                      boxShadow: "0 20px 60px rgba(229, 57, 53, 0.4)",
                     }
-                  : { scale: 1.02, boxShadow: "0 0 40px rgba(229, 57, 53, 0.3)" }
+                  : { y: -8, boxShadow: "0 15px 40px rgba(229, 57, 53, 0.2)" }
               }
-              className={`rounded-2xl p-10 transition-all duration-300 cursor-pointer group ${
+              className={`relative rounded-2xl p-10 transition-all duration-300 cursor-pointer group overflow-hidden ${
                 program.featured
-                  ? "glass border-2 border-accent/60 shadow-glow-intense bg-card/80"
-                  : "glass border border-border hover:border-accent/40 bg-card/50"
+                  ? "glass border-2 border-accent/60 bg-gradient-to-br from-card/80 to-card/60 shadow-lg"
+                  : "glass border border-border/50 bg-gradient-to-br from-card/50 to-card/30 hover:border-accent/40 hover:from-card/70 hover:to-card/50"
               }`}
             >
+              {/* Background gradient accent */}
+              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                program.featured 
+                  ? "bg-gradient-to-br from-accent/5 to-transparent" 
+                  : "bg-gradient-to-br from-accent/10 to-transparent"
+              }`} />
+              
+              <div className="relative z-10">
               {/* Number */}
               <div
                 className={`text-6xl font-black mb-8 transition-colors ${
@@ -114,11 +123,12 @@ export function Programs() {
               <motion.div
                 whileHover={{ x: 5 }}
                 className={`text-2xl ${
-                  program.featured ? "text-accent" : "text-text-muted"
+                  program.featured ? "text-accent" : "text-text-muted group-hover:text-accent"
                 }`}
               >
                 →
               </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>

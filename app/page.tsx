@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar";
 import { ScrollProvider } from "@/components/scroll-provider";
 import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
@@ -5,6 +6,7 @@ import { About } from "@/components/about";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import { Features } from "@/components/features";
 import { Programs } from "@/components/programs";
+import { ParallaxBreak } from "@/components/parallax-break";
 import { Transformation } from "@/components/transformation";
 import { SuccessMetrics } from "@/components/success-metrics";
 import { Testimonials } from "@/components/testimonials";
@@ -19,6 +21,7 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <ScrollProvider>
+      <Navbar />
       <main className="w-full overflow-hidden bg-background">
         <Hero />
         <Services />
@@ -26,6 +29,7 @@ export default function Home() {
         <WhyChooseUs />
         <Features />
         <Programs />
+        <ParallaxBreak />
         <Transformation />
         <SuccessMetrics />
         <Testimonials />

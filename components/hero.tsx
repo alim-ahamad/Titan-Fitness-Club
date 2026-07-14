@@ -9,6 +9,7 @@ export function Hero() {
 
   return (
     <section
+      id="hero"
       ref={containerRef}
       className="relative w-full min-h-screen flex items-center justify-between overflow-hidden bg-background"
     >

@@ -6,8 +6,16 @@ import { motion } from "framer-motion";
 export function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isPointer, setIsPointer] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
 
@@ -20,32 +28,65 @@ export function CustomCursor() {
       );
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+    if (!isMobile) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, [isMobile]);
+
+  // Don't render cursor on mobile
+  if (isMobile) return null;
 
   return (
     <>
       {/* Main cursor circle */}
       <motion.div
-        className="fixed w-6 h-6 rounded-full border-2 border-accent pointer-events-none z-50"
+        className="fixed w-5 h-5 rounded-full border-2 border-accent pointer-events-none z-50 mix-blend-screen"
         animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
-          scale: isPointer ? 1.3 : 1,
+          x: mousePosition.x - 10,
+          y: mousePosition.y - 10,
+          scale: isPointer ? 1.4 : 1,
         }}
-        transition={{ type: "spring", stiffness: 500, damping: 28 }}
+        transition={{
+          type: "tween",
+          duration: 0.08,
+          ease: "easeOut",
+        }}
       />
 
       {/* Outer glow circle */}
       <motion.div
-        className="fixed w-10 h-10 rounded-full border border-accent/30 pointer-events-none z-40"
+        className="fixed w-8 h-8 rounded-full border border-accent/40 pointer-events-none z-40 mix-blend-screen"
         animate={{
-          x: mousePosition.x - 20,
-          y: mousePosition.y - 20,
-          scale: isPointer ? 1.5 : 1,
+          x: mousePosition.x - 16,
+          y: mousePosition.y - 16,
+          scale: isPointer ? 1.6 : 1,
         }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        transition={{
+          type: "tween",
+          duration: 0.15,
+          ease: "easeOut",
+        }}
+      />
+
+      {/* Glow effect */}
+      <motion.div
+        className="fixed w-12 h-12 rounded-full bg-accent/10 pointer-events-none z-30 blur-xl mix-blend-screen"
+        animate={{
+          x: mousePosition.x - 24,
+          y: mousePosition.y - 24,
+          scale: isPointer ? 1.8 : 1,
+          opacity: isPointer ? 0.6 : 0.3,
+        }}
+        transition={{
+          type: "tween",
+          duration: 0.2,
+          ease: "easeOut",
+        }}
       />
     </>
   );
