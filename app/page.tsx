@@ -6,6 +6,7 @@ import { About } from "@/components/about";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import { Features } from "@/components/features";
 import { Programs } from "@/components/programs";
+import { ParallaxBreak } from "@/components/parallax-break";
 import { Transformation } from "@/components/transformation";
 import { SuccessMetrics } from "@/components/success-metrics";
 import { Testimonials } from "@/components/testimonials";
@@ -28,6 +29,7 @@ export default function Home() {
         <WhyChooseUs />
         <Features />
         <Programs />
+        <ParallaxBreak />
         <Transformation />
         <SuccessMetrics />
         <Testimonials />
